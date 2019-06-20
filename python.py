@@ -41,3 +41,78 @@ class Person:
 person = Person()
 print(getattr(person, 'age'))
 
+
+# Class Methods
+class Car:
+	def __init__(self, brand, model, color, fuel):
+		self.brand = brand
+		self.model = model
+		self.color = color
+		self.fuel = fuel
+
+	def start(self):
+		print(f"Car {self.model} is start")
+
+	def stop(self):
+		pass
+
+	def turn(self):
+		pass
+
+blackverna = Car('Hyundai', 'Verna', 'Black', 'Diesel')
+blackverna.start()
+
+
+# Python Method
+class Try:
+	def __init__(self):
+		pass
+
+	def printhello(self, name):
+		print(f"Hello {name}")
+		# return name
+
+obj = Try()
+obj.printhello('Ayushi')
+
+
+
+class Try:
+
+	def printhello(self, name):
+		# print(f"Hello {name}")
+		return (f"Hello {name}")
+
+obj = Try()
+# obj.printhello('Ayushi')
+
+
+# Constructors
+class three:
+	def __init__(self):
+		self.val = int(input("Enter your value \n"))
+
+t = three()
+print(t.val)
+
+
+class one:
+	def __init__(self, a):
+		print(a)
+
+o = one('a')
+
+
+
+# zip()
+for i in zip([1,2,3,4,5,6], [4,5,6,7,8]):
+	print(i)
+
+
+z = zip([1,2], [3,4])
+a,b = zip(*z)
+print(a,b)
+
+
+# eval()
+print(eval('[1,2,3][2]'))
