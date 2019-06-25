@@ -212,3 +212,47 @@ print(colors._make(['1', '2', '3']))
 
 # Converting a dict into namedtuple
 print(colors(**{'r': 255, 'g':0, 'b':0}))
+
+
+# DATETIME MODULE
+
+import datetime
+import time
+
+print(datetime.MAXYEAR)
+print(type(datetime.MINYEAR))
+print(datetime.date.today())
+
+print(time.time())
+print(datetime.date.fromtimestamp(time.time()+99999))
+print(datetime.date.today().timetuple())
+
+print(datetime.datetime.today())
+
+
+# Python pprint Module
+
+data=[(1,{'a':'A','b':'B','c':'C','d':'D'}),
+		(2,{'e':'E','f':'F','g':'G','h':'H','i':'I','j':'J','k':'K','l':'L'}),
+		(3,['m','n']),
+		(4,['o','p','q','r','s','t','u','v','w']),
+		(5,['x','y','z']),]
+
+print(data)
+
+from pprint import pprint
+pprint(data)
+
+
+class Color:
+	def __init__(self, name, hex_value):
+		self.name = name
+		self.hex_value = hex_value
+
+	def __repr__(self):
+		return('I am '+self.name+' and you can find me at '+self.hex_value)
+
+colors=[Color('salmon','#FA8072'),Color('olive','#808000'),Color('purple','#800080')]
+print(colors)
+
+pprint(colors)
