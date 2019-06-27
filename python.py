@@ -332,3 +332,127 @@ def fibonacci(n):
 
 fibonacci(9)
 print(fib)
+
+
+# DECORATORS
+
+def decorator(func):
+	def wrap():
+		print("**********")
+		func()
+		print("**********")
+	return wrap
+
+@decorator
+def sayhello():
+	print("Hello")
+
+sayhello()
+fun = decorator(sayhello)
+fun()
+
+
+def divide(a,b):
+	return a/b
+
+def decorator(func):
+	def wrapper(a,b):
+		if b==0:
+			print("Can't divide by zero")
+			return 
+		return func(a,b)
+	return wrapper
+
+fun = decorator(divide)
+print(fun(2,0))
+
+
+Chaining decorators
+
+def dec1(func):
+	def wrap():
+		print("*****")
+		func()
+		print("*****")
+	return wrap
+
+def dec2(func):
+	def wrap():
+		print("-----")
+		func()
+		print("-----")
+	return wrap
+
+@dec2
+@dec1
+def sayhello():
+	print("Hello World")
+
+sayhello()
+
+
+# GENERATORS
+
+def counter():
+	i =1
+	while (i<=10):
+		yield i
+		i += 1
+
+for i in counter():
+	print(i)
+
+
+def even(x):
+	while x%2==0:
+		yield "Even"
+		break	
+
+for i in even(2):
+	print(i)
+
+
+def even_squares(x):
+	for i in range(x):
+		if i**2%2==0:
+			yield i**2
+
+print(list(even_squares(10)))
+
+
+mylist = [1,3,6,10]
+a = (x**2 for x in mylist)
+print(next(a))
+print(next(a))
+print(next(a))
+for i in a:
+	print(i)
+
+
+# ITERATORS
+Creating your own iterator
+
+class PowTwo:
+	def __init__(self, max=0):
+		self.max = max
+
+	def __iter__(self):
+		self.n = 0
+		return self
+
+	def __next__(self):
+		if self.n <= self.max:
+			result = 2**self.n
+			self.n += 1
+			return result
+		else:
+			raise StopIteration
+
+
+a = PowTwo(4)
+i = iter(a)
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
