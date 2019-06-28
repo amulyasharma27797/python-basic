@@ -456,3 +456,62 @@ print(next(i))
 print(next(i))
 print(next(i))
 print(next(i))
+
+
+# CLASSES AND INHERITANCE
+
+class fruit:
+	size = "Small"
+	def __init__(self, color, shape):
+		self.color = color
+		self.shape = shape
+
+	def salutation():
+		print("I am happy")
+
+fruit.salutation() 
+
+class Person:
+	pass
+
+class Student(Person):
+	pass
+
+print(issubclass(Student, Person))
+
+x = 0
+class Fruit:
+	def __init__(self):
+		global x
+		x += 1
+		print("I'm a fruit")
+
+class Citrus(Fruit):
+	def __init__(self):
+		super().__init__()
+		global x
+		x += 2
+		print("I'm citrus")
+
+print(x)
+
+lime = Citrus()
+# print(lime)
+
+print(x)
+
+
+class Vehicle:
+	def start(self):
+		print("Engine Starting")
+	def stop(self):
+		print("Engine Stopping")
+
+class TwoWheeler(Vehicle):
+	def say(self):
+		super().start()
+		print("I have two wheels")
+		super().stop()
+
+pulsar = TwoWheeler()
+pulsar.say()
